@@ -7,17 +7,19 @@ import { NotificationMessage } from './Notification';
 
 export default function App() {
 
+  // === ХУКи состояния
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  // === Объект названий кнопок
   const nameOfButton = {
     good,
     neutral,
     bad,
   };
 
-  // Колбек по нажатию кнопок отзывов
+  // === Колбек по нажатию кнопок отзывов
   const onLeaveFeedback = (option) => { 
     switch (option) {
       case 'good':
@@ -33,12 +35,12 @@ export default function App() {
     };
   };
 
-  // Подсчёт общего количества отзывов
+  // === Подсчёт общего количества отзывов
   const countTotalFeedback = () => {
     return (good + neutral + bad)
   };
   
-  // Подсчёт процента положительных отзывов
+  // === Подсчёт процента положительных отзывов
   const countPositiveFeedbackPercentage = () => {
     return (Math.round((good / (good + neutral + bad)) * 100))
   };
